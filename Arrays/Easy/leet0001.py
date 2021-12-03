@@ -1,5 +1,4 @@
 #https://leetcode.com/problems/two-sum/
-
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:    
         sort_num = sorted(((v,i) for i,v in enumerate(nums)),reverse=False)
