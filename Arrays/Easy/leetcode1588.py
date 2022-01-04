@@ -23,8 +23,8 @@ class Solution:
         return sum
     
     
-    #Optimal Solution
-    class Solution:
+#Optimal Solution
+class Solution:
     def sumOddLengthSubarrays(self, A: List[int]) -> int:
         ans, n = 0, len(A)
         for i, v in enumerate(A):
