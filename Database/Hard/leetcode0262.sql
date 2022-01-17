@@ -34,3 +34,4 @@ LEFT JOIN Users AS Driver ON Trips.driver_id = Driver.users_id
 WHERE Client.banned = 'No' AND Driver.banned = 'No'
     AND (Trips.request_at BETWEEN "2013-10-01" and "2013-10-03")
 GROUP BY Trips.request_at;
+
