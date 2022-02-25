@@ -1,0 +1,23 @@
+# https://leetcode.com/problems/employees-earning-more-than-their-managers/
+
+# Table: Employee
+# +-------------+---------+
+# | Column Name | Type    |
+# +-------------+---------+
+# | id          | int     |
+# | name        | varchar |
+# | salary      | int     |
+# | managerId   | int     |
+# +-------------+---------+
+# id is the primary key column for this table.
+# Each row of this table indicates the ID of an employee, their name, salary, and the ID of their manager.
+ 
+# Write an SQL query to find the employees who earn more than their managers.
+# Return the result table in any order.
+
+# My Solution
+SELECT E1.NAME AS EMPLOYEE
+FROM EMPLOYEE E1 JOIN EMPLOYEE E2
+ON E1.MANAGERID = E2.ID
+WHERE E1.SALARY>E2.SALARY;
+
