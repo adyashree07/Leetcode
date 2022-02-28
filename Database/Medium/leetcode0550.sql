@@ -29,3 +29,11 @@ T2 AS (
        
 SELECT ROUND((SELECT COUNT(DISTINCT PLAYER_ID) FROM T2)/(SELECT COUNT(DISTINCT PLAYER_ID) FROM ACTIVITY),2) AS FRACTION;
 
+
+# Alternate Solution
+Select round(sum(is_return)/count(distinct player_id),2) as fraction from (
+   select player_id, 
+          min(event_date) over(partition by player_id) + 1= event_date as is_return 
+   from activity)t
+   
+   
