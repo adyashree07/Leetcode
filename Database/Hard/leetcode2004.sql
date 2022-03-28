@@ -77,4 +77,3 @@ select coalesce(experience,'Senior') experience, accepted_candidates from temp
 union
 select coalesce(experience,'Junior') experience, accepted_candidates from temp2;
 
-
