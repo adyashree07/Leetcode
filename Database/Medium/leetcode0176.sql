@@ -31,3 +31,14 @@ SELECT Max(Salary) as  SecondHighestSalary
 FROM Employee
 WHERE Salary < (SELECT MAX(Salary) FROM Employee );
 
+
+# Alternate Solution-3
+SELECT CASE WHEN MAX(RNK)>=2 THEN SALARY 
+            ELSE NULL
+       END AS SECONDHIGHESTSALARY FROM (
+    SELECT SALARY, 
+           DENSE_RANK() OVER (ORDER BY SALARY DESC) AS RNK
+    FROM EMPLOYEE
+) T
+WHERE T.RNK=2;
+
