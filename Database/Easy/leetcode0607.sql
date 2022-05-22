@@ -58,6 +58,17 @@ SELECT DISTINCT T.SALES_NAME AS NAME FROM (
         WHERE C1.NAME="RED" )) T;
 
 
+# My Solution -2
+WITH T AS (
+    SELECT O.SALES_ID
+    FROM ORDERS O JOIN COMPANY C
+    ON O.COM_ID = C.COM_ID
+    WHERE C.NAME='RED')
+
+SELECT NAME FROM SALESPERSON
+WHERE SALES_ID NOT IN (SELECT * FROM T);
+
+
 # Alternate Solution
 SELECT name 
 from salesperson 
@@ -67,3 +78,4 @@ where sales_id not in (select o.sales_id
                        on o.com_id=c.com_id
                        where c.name='RED'
                        );
+
