@@ -18,3 +18,10 @@ SELECT DISTINCT EMAIL FROM (
     SELECT EMAIL, ROW_NUMBER() OVER (PARTITION BY EMAIL) AS RNK FROM PERSON) T
 WHERE T.RNK>1;
 
+
+# Alternate Solution
+select Email
+from Person
+group by Email
+having count(Email) > 1;
+
