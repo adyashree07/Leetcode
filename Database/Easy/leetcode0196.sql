@@ -32,4 +32,11 @@ where id not in (
                   group by email
                ) as p
             ) ;
+            
+            
+# Alternate Solution-2
+DELETE P1 FROM PERSON P1, PERSON P2
+WHERE P1.EMAIL = P2.EMAIL AND P1.ID>P2.ID;
+
+
 
